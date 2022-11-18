@@ -21,17 +21,15 @@ BEGIN
 		GENERIC MAP(
 			counting_time_window => 10,
 			maximum_frequency => 100,
-            threshold_frequency => 2,
+			threshold_frequency => 2,
 			alarm_on_time => 2)
-		
+
 		PORT MAP(
 			clk => clk,
 			reset => reset,
 			freq_input => freq_in,
 			alarm => alarm
 		);
-		
-	
 	-- TEST SEQUENCES --
 	L_FREQ_IN_CYCLE : PROCESS
 	BEGIN
@@ -39,7 +37,7 @@ BEGIN
 		reset <= '0';
 
 		WAIT FOR 10 ns;
---
+		--
 		freq_in_cycle <= 10 ns;
 		WAIT FOR 90 ns;
 
@@ -54,40 +52,38 @@ BEGIN
 
 		freq_in_cycle <= 16 ns;
 		WAIT FOR 90 ns;
-		
-
 		freq_in_cycle <= 15 ns;
 		WAIT FOR 10 ns;
 
 		freq_in_cycle <= 20 ns;
 		WAIT FOR 10 ns;
 
-	freq_in_cycle <= 25 ns;
-	WAIT FOR 10 ns;
-	
-	freq_in_cycle <= 30 ns;
- 		WAIT FOR 10 ns;
+		freq_in_cycle <= 25 ns;
+		WAIT FOR 10 ns;
 
-	freq_in_cycle <= 12 ns;
-		WAIT FOR 40 ns;
-
-		freq_in_cycle <= 10 ns;
- 		WAIT FOR 40 ns;
+		freq_in_cycle <= 30 ns;
+		WAIT FOR 10 ns;
 
 		freq_in_cycle <= 12 ns;
-	WAIT FOR 40 ns;
+		WAIT FOR 40 ns;
 
 		freq_in_cycle <= 10 ns;
 		WAIT FOR 40 ns;
 
-	 freq_in_cycle <= 12 ns;
-		 WAIT FOR 50 ns;
-		 
-		 freq_in_cycle <= 22 ns;
-		 WAIT FOR 50 ns;
-		 
-		 freq_in_cycle <= 32 ns;
-		 WAIT FOR 50 ns;
+		freq_in_cycle <= 12 ns;
+		WAIT FOR 40 ns;
+
+		freq_in_cycle <= 10 ns;
+		WAIT FOR 40 ns;
+
+		freq_in_cycle <= 12 ns;
+		WAIT FOR 50 ns;
+
+		freq_in_cycle <= 22 ns;
+		WAIT FOR 50 ns;
+
+		freq_in_cycle <= 32 ns;
+		WAIT FOR 50 ns;
 
 		WAIT;
 	END PROCESS;
